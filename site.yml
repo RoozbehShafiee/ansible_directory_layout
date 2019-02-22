@@ -1,3 +1,20 @@
 ---
 
-# master playbook
+- name: install python to run ansible playbook
+  hosts: ubuntu
+  become: true
+  gather_facts: False
+  tasks:
+  - name: install python 2.7 on ubuntu
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'bionic'
+  - name: make apt frontend noninteractive
+    raw: export DEBIAN_FRONTEND=noninteractive
+    when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'bionic'
+
+- name: install webserver
+  hosts: webservers
+  become: true
+  tasks:
+  - name: import webserver role
+    import_tasks: webservers.yml

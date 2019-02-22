@@ -1,3 +1,5 @@
 ---
 
-# playbook for webserver tier
+- name: install webserver
+  roles:
+     - common

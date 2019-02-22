@@ -1,3 +1,26 @@
 ---
 
-# inventory file for staging environment
+ubuntu:
+  hosts:
+    ubuntu-host-01:
+      ansible_host: 10.0.0.1
+    ubuntu-host-02:
+      ansible_host: 10.0.0.2
+    ubuntu-host-03:
+      ansible_host: 10.0.0.3
+
+redhat:
+  hosts:
+    redhat-host-01:
+      ansible_host: 10.0.0.4
+    redhat-host-02:
+      ansible_host: 10.0.0.5
+    redhat-host-03:
+      ansible_host: 10.0.0.6
+
+webservers:
+  children:
+    ubuntu:
+    redhat:
+  vars:
+    ansible_user: devops
