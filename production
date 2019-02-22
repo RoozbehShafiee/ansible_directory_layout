@@ -1,22 +1,14 @@
 ---
 
-all:
+ubuntu:
   hosts:
-    ubuntu-host-01:
+    ubuntu-host:
       ansible_host: 10.1.0.1
-    ubuntu-host-02:
-      ansible_host: 10.1.0.2
-    ubuntu-host-03:
-      ansible_host: 10.1.0.3
 
 redhat:
   hosts:
-    redhat-host-01:
-      ansible_host: 10.1.0.4
-    redhat-host-02:
-      ansible_host: 10.1.0.5
-    redhat-host-03:
-      ansible_host: 10.1.0.6
+    redhat-host:
+      ansible_host: 10.1.0.2
 
 webservers:
   children:

@@ -3,8 +3,14 @@
 - name: update apt repositories cache
   apt:
     update_cache: yes
-    
+
 - name: install packages
   apt:
     name: "{{ packages_apt }}"
     state: present
+
+- name: label ubuntu
+  raw: echo "This is in {{ label_ubuntu }} group!" > /opt/ubuntu.txt
+
+- name: label host
+  raw: echo "This is a {{ label_ubuntu_host }} node!" > /opt/node.txt

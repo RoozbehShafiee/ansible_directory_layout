@@ -1,5 +1,7 @@
 ---
 
 - name: install webserver
-  roles:
-     - common
+  hosts: webservers
+  become: true
+  role:
+    - common

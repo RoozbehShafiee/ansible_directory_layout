@@ -2,25 +2,17 @@
 
 ubuntu:
   hosts:
-    ubuntu-host-01:
-      ansible_host: 10.0.0.1
-    ubuntu-host-02:
-      ansible_host: 10.0.0.2
-    ubuntu-host-03:
-      ansible_host: 10.0.0.3
+    ubuntu-host:
+      ansible_host: 10.33.108.27
 
-redhat:
-  hosts:
-    redhat-host-01:
-      ansible_host: 10.0.0.4
-    redhat-host-02:
-      ansible_host: 10.0.0.5
-    redhat-host-03:
-      ansible_host: 10.0.0.6
+# redhat:
+#   hosts:
+#     redhat-host:
+#       ansible_host: 10.0.0.2
 
 webservers:
   children:
     ubuntu:
-    redhat:
+    # redhat:
   vars:
-    ansible_user: devops
+    ansible_user: vagrant

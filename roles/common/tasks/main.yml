@@ -7,7 +7,10 @@
 - name: update packages by yum
   import_tasks: redhat.yml
   when: ansible_os_family == "RedHat" and ansible_lsb.major_release|int == 7
-  
+
 - name: update packages by apt
   import_tasks: ubuntu.yml
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'bionic'
+
+- name: label webservers
+  raw: echo "This is in {{ label_webserver }} group!" > /opt/webserver.txt

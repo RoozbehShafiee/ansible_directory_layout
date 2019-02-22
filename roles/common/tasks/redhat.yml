@@ -4,8 +4,14 @@
   yum:
     name: '*'
     state: latest
-    
+
 - name: install packages
   yum:
     name: "{{ packages_yum }}"
     state: present
+
+- name: label redhat
+  raw: echo "This is in {{ label_redhat }} group!" > /opt/redhat.txt
+
+- name: label host
+  raw: echo "This is a {{ label_redhat_host }} node!" > /opt/node.txt
