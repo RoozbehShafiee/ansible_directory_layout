@@ -1,3 +1,7 @@
 ---
 
 node_hostname: ansiblify.example.tld
+packages_apt:
+  - htop
+packages_yum:
+  - htop

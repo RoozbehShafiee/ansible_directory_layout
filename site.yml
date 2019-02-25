@@ -10,8 +10,6 @@
   - name: make apt frontend noninteractive
     raw: export DEBIAN_FRONTEND=noninteractive
 
-- name: install webserver
-  hosts: webservers
-  become: true
-  role:
-    - common
+- name: Include a play after another play
+  import_playbook: webservers.yml
+  tags: webservers
